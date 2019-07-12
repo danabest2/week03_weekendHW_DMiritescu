@@ -19,14 +19,14 @@ film2.save()
 film3 = Film.new({'title' => 'Midnight in Paris', 'price' => '20'})
 film3.save()
 
-# customer1 = Customer.new({ 'name' => 'Tom', 'funds' => '10'})
-# customer1.save()
-#
-# customer2 = Customer.new({ 'name' => 'Robert', 'funds' => '40'})
-# customer2.save()
-#
-# customer3 = Customer.new({ 'name' => 'Nicky', 'funds' => '60'})
-# customer3.save()
+customer1 = Customer.new({ 'name' => 'Tom', 'funds' => '10'})
+customer1.save()
+
+customer2 = Customer.new({ 'name' => 'Robert', 'funds' => '40'})
+customer2.save()
+
+customer3 = Customer.new({ 'name' => 'Nicky', 'funds' => '60'})
+customer3.save()
 #
 # ticket1 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer1.id})
 # ticket1.save()
