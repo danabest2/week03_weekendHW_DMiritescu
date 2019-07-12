@@ -1,0 +1,620 @@
+Last login: Thu Jul 11 13:50:14 on ttys001
+➜  ~ ls
+Desktop                            codeclan_laptop_install_report.log
+Documents                          codeclan_work
+Downloads                          cohort_32
+Library                            e32_classnotes
+Movies                             laptop.log
+Music                              laptop_install_test
+Pictures                           mac
+Public                             start_point
+➜  ~ cd codeclan_work 
+➜  codeclan_work ls
+week_01 week_02 week_03
+➜  codeclan_work cd week_03
+➜  week_03 ls
+day_1 day_2 day_3 day_4 day_5
+➜  week_03 cp -R  /Users/danielamiritescu/e32_classnotes/week_03/weekend_homework   .
+➜  week_03 ls
+day_1            day_3            day_5
+day_2            day_4            weekend_homework
+➜  week_03 cd weekend_homework 
+➜  weekend_homework mkdir db      
+➜  weekend_homework mkdir models
+➜  weekend_homework ls
+db                   models               weekend_hw_cinema.md
+➜  weekend_homework touch console.rb
+➜  weekend_homework cd models
+➜  models touch customer
+➜  models touch customer.rb
+➜  models touch film.rb
+➜  models touch ticket.rb
+➜  models ../
+➜  weekend_homework cd db
+➜  db createdb cinema
+➜  db psql -d cinema
+psql (11.3)
+Type "help" for help.
+
+cinema=# \q
+➜  db touch cinema.sql
+➜  db ../
+➜  weekend_homework atom .
+➜  weekend_homework cd db
+➜  db touch sql_runner.rb
+➜  db ../
+➜  weekend_homework atom .
+➜  weekend_homework psql -d cinema -f cinema.sql
+cinema.sql: No such file or directory
+➜  weekend_homework touch cinema.sql
+➜  weekend_homework ls
+cinema.sql           db                   weekend_hw_cinema.md
+console.rb           models
+➜  weekend_homework psql -d cinema cinema.sql
+psql: FATAL:  role "cinema.sql" does not exist
+➜  weekend_homework psql -d cinema -f cinema.sql
+➜  weekend_homework psql -d cinema -f cinema.sql
+➜  weekend_homework ls
+console.rb           models
+db                   weekend_hw_cinema.md
+➜  weekend_homework psql -d cinema -f cinema.sql
+cinema.sql: No such file or directory
+➜  weekend_homework cd db
+➜  db touch cinema.sql
+➜  db ../
+➜  weekend_homework ls
+console.rb           models
+db                   weekend_hw_cinema.md
+➜  weekend_homework cd db
+➜  db ls
+cinema.sql    sql_runner.rb
+➜  db ../
+➜  weekend_homework create db cinema            
+zsh: command not found: create
+➜  weekend_homework createdb cinema 
+createdb: database creation failed: ERROR:  database "cinema" already exists
+➜  weekend_homework psql -d cinema -f cinema.sql
+cinema.sql: No such file or directory
+➜  weekend_homework psql -d cinema -f db/cinema.sql
+psql:db/cinema.sql:1: ERROR:  table "tickets" does not exist
+psql:db/cinema.sql:2: ERROR:  table "films" does not exist
+psql:db/cinema.sql:3: ERROR:  table "customers" does not exist
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+➜  weekend_homework psql -d cinema -f db/cinema.sql
+DROP TABLE
+DROP TABLE
+DROP TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+➜  weekend_homework ruby console.rb 
+/Users/danielamiritescu/codeclan_work/week_03/weekend_homework/db/sql_runner.rb:1:in `<top (required)>': undefined method `equire' for main:Object (NoMethodError)
+Did you mean?  require
+	from /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/models/film.rb:1:in `require_relative'
+	from /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/models/film.rb:1:in `<top (required)>'
+	from console.rb:1:in `require_relative'
+	from console.rb:1:in `<main>'
+➜  weekend_homework ruby console.rb 
+/Users/danielamiritescu/codeclan_work/week_03/weekend_homework/models/film.rb:23:in `save': undefined local variable or method `film' for #<Film:0x007ff8da3b6098 @title="Castaway", @price=10> (NameError)
+Did you mean?  fail
+	from console.rb:14:in `<main>'
+➜  weekend_homework ruby console.rb 
+
+From: /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/console.rb @ line 50 :
+
+    45: #
+    46: # ticket6 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer3.id})
+    47: # ticket6.save()
+    48: 
+    49: binding.pry
+ => 50: nil
+
+[1] pry(main)> !!!
+➜  weekend_homework git init
+Initialized empty Git repository in /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/.git/
+➜  weekend_homework git:(master) ✗ git add .
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+➜  weekend_homework git:(master) ✗ gaa
+➜  weekend_homework git:(master) ✗ git remote add origin git@github.com:danabest2/week03_weekendHW_DMiritescu.git
+git push -u origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'git@github.com:danabest2/week03_weekendHW_DMiritescu.git'
+➜  weekend_homework git:(master) ✗ git add .
+➜  weekend_homework git:(master) ✗ git commit -m "initial commit"
+[master (root-commit) ef5ec6d] initial commit
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+ 7 files changed, 207 insertions(+)
+ create mode 100644 console.rb
+ create mode 100644 db/cinema.sql
+ create mode 100644 db/sql_runner.rb
+ create mode 100644 models/customer.rb
+ create mode 100644 models/film.rb
+ create mode 100644 models/ticket.rb
+ create mode 100644 weekend_hw_cinema.md
+➜  weekend_homework git:(master) git status
+On branch master
+nothing to commit, working tree clean
+➜  weekend_homework git:(master) git remote add origin git@github.com:danabest2/week03_weekendHW_DMiritescu.git
+git push -u origin master
+fatal: remote origin already exists.
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (11/11), 2.66 KiB | 1.33 MiB/s, done.
+Total 11 (delta 0), reused 0 (delta 0)
+To github.com:danabest2/week03_weekendHW_DMiritescu.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+➜  weekend_homework git:(master) git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+➜  weekend_homework git:(master)                                                                               
+git push -u origin master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+Everything up-to-date
+➜  weekend_homework git:(master) ruby console.rb                                                               
+
+From: /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/console.rb @ line 50 :
+
+    45: #
+    46: # ticket6 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer3.id})
+    47: # ticket6.save()
+    48: 
+    49: binding.pry
+ => 50: nil
+
+[1] pry(main)> film1
+=> #<Film:0x007f96e1c620d0 @id=5, @price=10, @title="Castaway">
+[2] pry(main)> film2
+=> #<Film:0x007f96e1c60c30 @id=6, @price=15, @title="Godfather">
+[3] pry(main)> film3
+=> #<Film:0x007f96e1c5b988 @id=7, @price=20, @title="Midnight in Paris">
+[4] pry(main)> \q
+SyntaxError: unexpected $undefined, expecting end-of-input
+[4] pry(main)> !!!
+➜  weekend_homework git:(master) ruby console.rb 
+console.rb:23:in `<main>': undefined method `save' for #<Customer:0x007fb4d5a39f80 @name="Tom", @funds=10> (NoMethodError)
+➜  weekend_homework git:(master) ✗ ruby console.rb 
+
+From: /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/console.rb @ line 50 :
+
+    45: #
+    46: # ticket6 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer3.id})
+    47: # ticket6.save()
+    48: 
+    49: binding.pry
+ => 50: nil
+
+[1] pry(main)> customer1
+=> #<Customer:0x007fc5601d8f30 @funds=10, @id=1, @name="Tom">
+[2] pry(main)> customer2
+=> #<Customer:0x007fc5601d3968 @funds=40, @id=2, @name="Robert">
+[3] pry(main)> !!!
+➜  weekend_homework git:(master) ✗ git commit -m "def save film and customer"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   console.rb
+	modified:   models/customer.rb
+
+no changes added to commit
+➜  weekend_homework git:(master) ✗ gaa     
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+➜  weekend_homework git:(master) ✗ git commit -m "def save film and customer"
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+[master 54dcc84] def save film and customer
+ 2 files changed, 22 insertions(+), 9 deletions(-)
+➜  weekend_homework git:(master) git push
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 837 bytes | 837.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:danabest2/week03_weekendHW_DMiritescu.git
+   ef5ec6d..54dcc84  master -> master
+➜  weekend_homework git:(master) git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+➜  weekend_homework git:(master) ruby console.rb                           
+/Users/danielamiritescu/codeclan_work/week_03/weekend_homework/db/sql_runner.rb:8:in `async_prepare': ERROR:  syntax error at or near ")" (PG::SyntaxError)
+LINE 5:       )
+              ^
+	from /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/db/sql_runner.rb:8:in `run'
+	from /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/models/ticket.rb:48:in `save'
+	from console.rb:32:in `<main>'
+➜  weekend_homework git:(master) ✗ ruby console.rb 
+/Users/danielamiritescu/codeclan_work/week_03/weekend_homework/db/sql_runner.rb:8:in `async_prepare': ERROR:  syntax error at or near ")" (PG::SyntaxError)
+LINE 5:       )
+              ^
+	from /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/db/sql_runner.rb:8:in `run'
+	from /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/models/ticket.rb:48:in `save'
+	from console.rb:32:in `<main>'
+➜  weekend_homework git:(master) ✗ ruby console.rb 
+
+From: /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/console.rb @ line 50 :
+
+    45: 
+    46: ticket6 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer3.id})
+    47: ticket6.save()
+    48: 
+    49: binding.pry
+ => 50: nil
+
+[1] pry(main)> ticket1
+=> #<Ticket:0x007fb5d00db4d8 @customer_id=10, @film_id=20, @id=1>
+[2] pry(main)> ticket6
+=> #<Ticket:0x007fb5d00cb998 @customer_id=12, @film_id=20, @id=6>
+[3] pry(main)> !!!
+➜  weekend_homework git:(master) ✗ gaa                             
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+➜  weekend_homework git:(master) ✗ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   console.rb
+	modified:   models/ticket.rb
+
+➜  weekend_homework git:(master) ✗ git commit -m "def save tickets"          
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+[master 8e46088] def save tickets
+ 2 files changed, 54 insertions(+), 18 deletions(-)
+➜  weekend_homework git:(master) git push
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 913 bytes | 913.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:danabest2/week03_weekendHW_DMiritescu.git
+   54dcc84..8e46088  master -> master
+➜  weekend_homework git:(master) ✗ ruby console.rb                 
+
+From: /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/console.rb @ line 50 :
+
+    45: 
+    46: ticket6 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer3.id})
+    47: ticket6.save()
+    48: 
+    49: binding.pry
+ => 50: nil
+
+[1] pry(main)> film.all
+NameError: undefined local variable or method `film' for main:Object
+Did you mean?  film3
+               film2
+               film1
+from (pry):1:in `<main>'
+[2] pry(main)> Film.all
+=> [#<Film:0x007fdf53026d88 @id=1, @price=10, @title="Castaway">,
+ #<Film:0x007fdf53026b08 @id=2, @price=10, @title="Castaway">,
+ #<Film:0x007fdf530267e8 @id=3, @price=15, @title="Godfather">,
+ #<Film:0x007fdf53026540 @id=4, @price=20, @title="Midnight in Paris">,
+ #<Film:0x007fdf53026360 @id=5, @price=10, @title="Castaway">,
+ #<Film:0x007fdf53025ed8 @id=6, @price=15, @title="Godfather">,
+ #<Film:0x007fdf53025be0 @id=7, @price=20, @title="Midnight in Paris">,
+ #<Film:0x007fdf530259d8 @id=8, @price=10, @title="Castaway">,
+ #<Film:0x007fdf53025898 @id=9, @price=15, @title="Godfather">,
+ #<Film:0x007fdf53025708 @id=10, @price=20, @title="Midnight in Paris">,
+ #<Film:0x007fdf53025488 @id=11, @price=10, @title="Castaway">,
+ #<Film:0x007fdf53024da8 @id=12, @price=15, @title="Godfather">,
+ #<Film:0x007fdf53024b78 @id=13, @price=20, @title="Midnight in Paris">,
+ #<Film:0x007fdf530248d0 @id=14, @price=10, @title="Castaway">,
+ #<Film:0x007fdf53024628 @id=15, @price=15, @title="Godfather">,
+ #<Film:0x007fdf53024218 @id=16, @price=20, @title="Midnight in Paris">,
+ #<Film:0x007fdf530270f8 @id=17, @price=10, @title="Castaway">,
+ #<Film:0x007fdf5301fd30 @id=18, @price=15, @title="Godfather">,
+ #<Film:0x007fdf5301fb50 @id=19, @price=20, @title="Midnight in Paris">,
+ #<Film:0x007fdf5301f8a8 @id=20, @price=10, @title="Castaway">,
+ #<Film:0x007fdf5301f498 @id=21, @price=15, @title="Godfather">,
+ #<Film:0x007fdf5301f060 @id=22, @price=20, @title="Midnight in Paris">,
+ #<Film:0x007fdf5301eca0 @id=23, @price=10, @title="Castaway">,
+ #<Film:0x007fdf5301cab8 @id=24, @price=15, @title="Godfather">,
+ #<Film:0x007fdf53014318 @id=25, @price=20, @title="Midnight in Paris">]
+[3] pry(main)> !!!
+➜  weekend_homework git:(master) ✗ ruby console.rb 
+
+From: /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/console.rb @ line 50 :
+
+    45: 
+    46: ticket6 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer3.id})
+    47: ticket6.save()
+    48: 
+    49: binding.pry
+ => 50: nil
+
+[1] pry(main)> Customer.all
+NameError: undefined local variable or method `result' for Customer:Class
+from /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/models/customer.rb:35:in `all'
+[2] pry(main)> Customer1
+NameError: uninitialized constant Customer1
+Did you mean?  Customer
+from (pry):2:in `<main>'
+[3] pry(main)> customer1
+=> #<Customer:0x007f9cd508d6c0 @funds=10, @id=16, @name="Tom">
+[4] pry(main)> customer2
+=> #<Customer:0x007f9cd5086eb0 @funds=40, @id=17, @name="Robert">
+[5] pry(main)> customer3
+=> #<Customer:0x007f9cd507fc28 @funds=60, @id=18, @name="Nicky">
+[6] pry(main)> Customer.all
+NameError: undefined local variable or method `result' for Customer:Class
+from /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/models/customer.rb:35:in `all'
+[7] pry(main)> Customer.all
+NameError: undefined local variable or method `result' for Customer:Class
+from /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/models/customer.rb:35:in `all'
+[8] pry(main)> !!!
+➜  weekend_homework git:(master) ✗ ruby console.rb 
+
+From: /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/console.rb @ line 50 :
+
+    45: 
+    46: ticket6 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer3.id})
+    47: ticket6.save()
+    48: 
+    49: binding.pry
+ => 50: nil
+
+[1] pry(main)> Customer.all
+=> [#<Customer:0x007f810b9ea398 @funds=10, @id=1, @name="Tom">,
+ #<Customer:0x007f810b9ea2a8 @funds=40, @id=2, @name="Robert">,
+ #<Customer:0x007f810b9ea168 @funds=60, @id=3, @name="Nicky">,
+ #<Customer:0x007f810b9ea050 @funds=10, @id=4, @name="Tom">,
+ #<Customer:0x007f810b9e9f38 @funds=40, @id=5, @name="Robert">,
+ #<Customer:0x007f810b9e9e70 @funds=60, @id=6, @name="Nicky">,
+ #<Customer:0x007f810b9e9d58 @funds=10, @id=7, @name="Tom">,
+ #<Customer:0x007f810b9e9c18 @funds=40, @id=8, @name="Robert">,
+ #<Customer:0x007f810b9e9b50 @funds=60, @id=9, @name="Nicky">,
+ #<Customer:0x007f810b9e98f8 @funds=10, @id=10, @name="Tom">,
+ #<Customer:0x007f810b9e93f8 @funds=40, @id=11, @name="Robert">,
+ #<Customer:0x007f810b9e92b8 @funds=60, @id=12, @name="Nicky">,
+ #<Customer:0x007f810b9e91c8 @funds=10, @id=13, @name="Tom">,
+ #<Customer:0x007f810b9e90d8 @funds=40, @id=14, @name="Robert">,
+ #<Customer:0x007f810b9e8fc0 @funds=60, @id=15, @name="Nicky">,
+ #<Customer:0x007f810b9e8ef8 @funds=10, @id=16, @name="Tom">,
+ #<Customer:0x007f810b9e8db8 @funds=40, @id=17, @name="Robert">,
+ #<Customer:0x007f810b9e8cf0 @funds=60, @id=18, @name="Nicky">,
+ #<Customer:0x007f810b9e8b88 @funds=10, @id=19, @name="Tom">,
+ #<Customer:0x007f810b9e8980 @funds=40, @id=20, @name="Robert">,
+ #<Customer:0x007f810b9e8638 @funds=60, @id=21, @name="Nicky">]
+[2] pry(main)> !!!
+➜  weekend_homework git:(master) ✗ ruby console.rb 
+
+From: /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/console.rb @ line 50 :
+
+    45: 
+    46: ticket6 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer3.id})
+    47: ticket6.save()
+    48: 
+    49: binding.pry
+ => 50: nil
+
+[1] pry(main)> Ticket.all
+=> [#<Ticket:0x007feb95153e38 @customer_id=10, @film_id=20, @id=1>,
+ #<Ticket:0x007feb95153ca8 @customer_id=11, @film_id=21, @id=2>,
+ #<Ticket:0x007feb95153b90 @customer_id=11, @film_id=22, @id=3>,
+ #<Ticket:0x007feb95153a00 @customer_id=12, @film_id=21, @id=4>,
+ #<Ticket:0x007feb951537f8 @customer_id=12, @film_id=22, @id=5>,
+ #<Ticket:0x007feb951536e0 @customer_id=12, @film_id=20, @id=6>,
+ #<Ticket:0x007feb951535f0 @customer_id=13, @film_id=23, @id=7>,
+ #<Ticket:0x007feb95153438 @customer_id=14, @film_id=24, @id=8>,
+ #<Ticket:0x007feb95153190 @customer_id=14, @film_id=25, @id=9>,
+ #<Ticket:0x007feb95153028 @customer_id=15, @film_id=24, @id=10>,
+ #<Ticket:0x007feb95152e20 @customer_id=15, @film_id=25, @id=11>,
+ #<Ticket:0x007feb95152c40 @customer_id=15, @film_id=23, @id=12>,
+ #<Ticket:0x007feb95152b00 @customer_id=16, @film_id=26, @id=13>,
+ #<Ticket:0x007feb95152a38 @customer_id=17, @film_id=27, @id=14>,
+ #<Ticket:0x007feb951528a8 @customer_id=17, @film_id=28, @id=15>,
+ #<Ticket:0x007feb95152718 @customer_id=18, @film_id=27, @id=16>,
+ #<Ticket:0x007feb951525b0 @customer_id=18, @film_id=28, @id=17>,
+ #<Ticket:0x007feb951523f8 @customer_id=18, @film_id=26, @id=18>,
+ #<Ticket:0x007feb951522b8 @customer_id=19, @film_id=29, @id=19>,
+ #<Ticket:0x007feb95152150 @customer_id=20, @film_id=30, @id=20>,
+ #<Ticket:0x007feb95152038 @customer_id=20, @film_id=31, @id=21>,
+ #<Ticket:0x007feb95151f70 @customer_id=21, @film_id=30, @id=22>,
+ #<Ticket:0x007feb95151e80 @customer_id=21, @film_id=31, @id=23>,
+ #<Ticket:0x007feb95151db8 @customer_id=21, @film_id=29, @id=24>,
+ #<Ticket:0x007feb95151cc8 @customer_id=22, @film_id=32, @id=25>,
+ #<Ticket:0x007feb95151b88 @customer_id=23, @film_id=33, @id=26>,
+ #<Ticket:0x007feb95151a20 @customer_id=23, @film_id=34, @id=27>,
+ #<Ticket:0x007feb95151958 @customer_id=24, @film_id=33, @id=28>,
+ #<Ticket:0x007feb95151890 @customer_id=24, @film_id=34, @id=29>,
+ #<Ticket:0x007feb95151778 @customer_id=24, @film_id=32, @id=30>]
+[2] pry(main)> !!!
+➜  weekend_homework git:(master) ✗ gaa
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+➜  weekend_homework git:(master) ✗ git commit -m "self all ticket, customer, film"
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+[master 2a4998c] self all ticket, customer, film
+ 3 files changed, 20 insertions(+), 1 deletion(-)
+➜  weekend_homework git:(master) git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+➜  weekend_homework git:(master) git push
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 962 bytes | 962.00 KiB/s, done.
+Total 6 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:danabest2/week03_weekendHW_DMiritescu.git
+   8e46088..2a4998c  master -> master
+➜  weekend_homework git:(master) git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+➜  weekend_homework git:(master) ruby console.rb                                
+
+From: /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/console.rb @ line 50 :
+
+    45: 
+    46: ticket6 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer3.id})
+    47: ticket6.save()
+    48: 
+    49: binding.pry
+ => 50: nil
+
+[1] pry(main)> Customer.all
+=> [#<Customer:0x007ff794a49208 @funds=10, @id=1, @name="Tom">,
+ #<Customer:0x007ff794a48fb0 @funds=40, @id=2, @name="Robert">,
+ #<Customer:0x007ff794a48e70 @funds=60, @id=3, @name="Nicky">,
+ #<Customer:0x007ff794a48bf0 @funds=10, @id=4, @name="Tom">,
+ #<Customer:0x007ff794a48a38 @funds=40, @id=5, @name="Robert">,
+ #<Customer:0x007ff794a48830 @funds=60, @id=6, @name="Nicky">,
+ #<Customer:0x007ff794a48650 @funds=10, @id=7, @name="Tom">,
+ #<Customer:0x007ff794a48470 @funds=40, @id=8, @name="Robert">,
+ #<Customer:0x007ff794a48178 @funds=60, @id=9, @name="Nicky">,
+ #<Customer:0x007ff794a4a680 @funds=10, @id=10, @name="Tom">,
+ #<Customer:0x007ff794a4adb0 @funds=40, @id=11, @name="Robert">,
+ #<Customer:0x007ff794a43600 @funds=60, @id=12, @name="Nicky">,
+ #<Customer:0x007ff794a43038 @funds=10, @id=13, @name="Tom">,
+ #<Customer:0x007ff794a42a98 @funds=40, @id=14, @name="Robert">,
+ #<Customer:0x007ff794a41f58 @funds=60, @id=15, @name="Nicky">,
+ #<Customer:0x007ff794a41a80 @funds=10, @id=16, @name="Tom">,
+ #<Customer:0x007ff794a41800 @funds=40, @id=17, @name="Robert">,
+ #<Customer:0x007ff794a41508 @funds=60, @id=18, @name="Nicky">,
+ #<Customer:0x007ff794a41300 @funds=10, @id=19, @name="Tom">,
+ #<Customer:0x007ff794a40d88 @funds=40, @id=20, @name="Robert">,
+ #<Customer:0x007ff794a40ab8 @funds=60, @id=21, @name="Nicky">,
+ #<Customer:0x007ff794a407e8 @funds=10, @id=22, @name="Tom">,
+ #<Customer:0x007ff794a400b8 @funds=40, @id=23, @name="Robert">,
+ #<Customer:0x007ff794a3bc70 @funds=60, @id=24, @name="Nicky">,
+ #<Customer:0x007ff794a3b9f0 @funds=10, @id=25, @name="Tom">,
+ #<Customer:0x007ff794a3b7e8 @funds=40, @id=26, @name="Robert">,
+ #<Customer:0x007ff794a3b270 @funds=60, @id=27, @name="Nicky">]
+[2] pry(main)> !!!
+➜  weekend_homework git:(master) ✗ ruby console.rb 
+
+From: /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/console.rb @ line 50 :
+
+    45: 
+    46: ticket6 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer3.id})
+    47: ticket6.save()
+    48: 
+    49: binding.pry
+ => 50: nil
+
+[1] pry(main)> Customer.all
+=> [#<Customer:0x007fad429d6ee8 @funds=10, @id=1, @name="Tom">,
+ #<Customer:0x007fad429d6d80 @funds=40, @id=2, @name="Robert">,
+ #<Customer:0x007fad429d6cb8 @funds=60, @id=3, @name="Nicky">,
+ #<Customer:0x007fad429d6b00 @funds=10, @id=4, @name="Tom">,
+ #<Customer:0x007fad429d6970 @funds=40, @id=5, @name="Robert">,
+ #<Customer:0x007fad429d6858 @funds=60, @id=6, @name="Nicky">,
+ #<Customer:0x007fad429d6740 @funds=10, @id=7, @name="Tom">,
+ #<Customer:0x007fad429d65b0 @funds=40, @id=8, @name="Robert">,
+ #<Customer:0x007fad429d6448 @funds=60, @id=9, @name="Nicky">,
+ #<Customer:0x007fad429d62b8 @funds=10, @id=10, @name="Tom">,
+ #<Customer:0x007fad429d6150 @funds=40, @id=11, @name="Robert">,
+ #<Customer:0x007fad429d5f70 @funds=60, @id=12, @name="Nicky">,
+ #<Customer:0x007fad429d5d90 @funds=10, @id=13, @name="Tom">,
+ #<Customer:0x007fad429d5a98 @funds=40, @id=14, @name="Robert">,
+ #<Customer:0x007fad429d53b8 @funds=60, @id=15, @name="Nicky">,
+ #<Customer:0x007fad429d49b8 @funds=10, @id=16, @name="Tom">,
+ #<Customer:0x007fad429d4850 @funds=40, @id=17, @name="Robert">,
+ #<Customer:0x007fad429d4710 @funds=60, @id=18, @name="Nicky">,
+ #<Customer:0x007fad429d4620 @funds=10, @id=19, @name="Tom">,
+ #<Customer:0x007fad429d4558 @funds=40, @id=20, @name="Robert">,
+ #<Customer:0x007fad429d4490 @funds=60, @id=21, @name="Nicky">,
+ #<Customer:0x007fad429d43a0 @funds=10, @id=22, @name="Tom">,
+ #<Customer:0x007fad429d4260 @funds=40, @id=23, @name="Robert">,
+ #<Customer:0x007fad429d4198 @funds=60, @id=24, @name="Nicky">,
+ #<Customer:0x007fad429d40a8 @funds=10, @id=25, @name="Tom">,
+ #<Customer:0x007fad429d4350 @funds=40, @id=26, @name="Robert">,
+ #<Customer:0x007fad42aaff40 @funds=60, @id=27, @name="Nicky">,
+ #<Customer:0x007fad42aafd88 @funds=10, @id=28, @name="Tom">,
+ #<Customer:0x007fad42aafc20 @funds=40, @id=29, @name="Robert">,
+ #<Customer:0x007fad42aaf950 @funds=60, @id=30, @name="Nicky">]
+[2] pry(main)> !!!
+➜  weekend_homework git:(master) ✗ ruby console.rb 
+
+From: /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/console.rb @ line 50 :
+
+    45: 
+    46: ticket6 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer3.id})
+    47: ticket6.save()
+    48: 
+    49: binding.pry
+ => 50: nil
+
+[1] pry(main)> Customer.all
+=> [#<Customer:0x007f91ba05e288 @funds=10, @id=31, @name="Tom">,
+ #<Customer:0x007f91ba05e1c0 @funds=40, @id=32, @name="Robert">,
+ #<Customer:0x007f91ba05df90 @funds=60, @id=33, @name="Nicky">]
+[2] pry(main)> !!!
+➜  weekend_homework git:(master) ✗ ruby console.rb 
+
+From: /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/console.rb @ line 50 :
+
+    45: 
+    46: ticket6 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer3.id})
+    47: ticket6.save()
+    48: 
+    49: binding.pry
+ => 50: nil
+
+[1] pry(main)> film.all
+NameError: undefined local variable or method `film' for main:Object
+Did you mean?  film3
+               film2
+               film1
+from (pry):1:in `<main>'
+[2] pry(main)> Film.all
+=> [#<Film:0x007fa9363c1748 @id=44, @price=10, @title="Castaway">,
+ #<Film:0x007fa9363c1680 @id=45, @price=15, @title="Godfather">,
+ #<Film:0x007fa9363c15b8 @id=46, @price=20, @title="Midnight in Paris">]
+[3] pry(main)> !!!
+➜  weekend_homework git:(master) ✗ ruby console.rb 
+
+From: /Users/danielamiritescu/codeclan_work/week_03/weekend_homework/console.rb @ line 50 :
+
+    45: 
+    46: ticket6 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer3.id})
+    47: ticket6.save()
+    48: 
+    49: binding.pry
+ => 50: nil
+
+[1] pry(main)> Ticket.all
+=> [#<Ticket:0x007ff775128620 @customer_id=37, @film_id=47, @id=55>,
+ #<Ticket:0x007ff77511bf38 @customer_id=38, @film_id=48, @id=56>,
+ #<Ticket:0x007ff775112d20 @customer_id=38, @film_id=49, @id=57>,
+ #<Ticket:0x007ff77510bcc8 @customer_id=39, @film_id=48, @id=58>,
+ #<Ticket:0x007ff77510b8b8 @customer_id=39, @film_id=49, @id=59>,
+ #<Ticket:0x007ff77510b3b8 @customer_id=39, @film_id=47, @id=60>]
+[2] pry(main)> !!!
+➜  weekend_homework git:(master) ✗ gaa
+warning: unable to access '/Users/danielamiritescu/.config/git/attributes': Permission denied
+➜  weekend_homework git:(master) ✗ git commit - m "delete.all customer, film,ticket" 
+error: pathspec '-' did not match any file(s) known to git
+error: pathspec 'm' did not match any file(s) known to git
+error: pathspec 'delete.all customer, film,ticket' did not match any file(s) known to git
+➜  weekend_homework git:(master) ✗ git commit -m "delete.all "customer, film, ticket"
+dquote> 
+dquote> clear
+dquote> 

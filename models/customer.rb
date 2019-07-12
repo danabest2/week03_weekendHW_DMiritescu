@@ -35,4 +35,14 @@ def self.all()
     return result
   end
 
+
+def self.delete_all()
+    sql = "DELETE FROM customers"
+    values = []
+    SqlRunner.run(sql, values)
+end
+
+
+
+
 end
