@@ -16,4 +16,40 @@ class Ticket
 
   end
 
+  def film
+      sql = 'SELECT * FROM films
+      WHERE id = $1'
+      values = [@film_id]
+      film = SqlRunner.run(sql, values).first
+      return Film.new(film)
+    end
+
+
+    def customer
+      sql = 'SELECT * FROM customers
+            WHERE id = $1'
+      values = [@customer_id]
+      customer = SqlRunner.run(sql, values).first
+      return Customer.new(customer)
+    end
+
+    def save()
+      sql = "INSERT INTO tickets
+      (
+        film_id,
+        customer_id
+      )
+      VALUES
+      (
+        $1, $2
+      )
+      RETURNING id"
+      values = [@film_id, @customer_id]
+      ticket = SqlRunner.run(sql, values ).first
+      @id = ticket['id'].to_i
+    end
+
+
+
+
 end
