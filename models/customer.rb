@@ -53,7 +53,7 @@ def films()
     film_data = SqlRunner.run(sql, values)
     return film_data.map { |film| Film.new(film) }
 end
-### Basic extenstion
+### Basic extensions
 # Check how many tickets were bought by a customer
 
 def tickets
@@ -62,6 +62,25 @@ def tickets
   ticket_data = SqlRunner.run(sql, values)
   return ticket_data.map{|ticket| Ticket.new(ticket)}
 end
+
+###
+# Buying tickets should decrease the funds of the customer by the price
+
+def films_price()
+    sql = "SELECT * FROM films where customer_id = $1"
+    values = [@id]
+    film_data = SqlRunner.run(sql, values)
+    return film_data.map{|film| Film.new(film)}
+  end
+
+  def remaining_funds()
+    films = self.films()
+    film_prices = films.map{|film| film.price}
+    combined_prices = film_prices.sum
+    return @funds - combined_prices
+  end
+
+
 
 
 end
