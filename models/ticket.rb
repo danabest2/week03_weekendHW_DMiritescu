@@ -66,8 +66,14 @@ class Ticket
           sql = "DELETE FROM tickets"
           SqlRunner.run(sql)
     end
-
-
+### basic extension
+# How many tickets were bought by a customer
+    # def tickets_by_customer
+    #   sql = "SELECT customers.* FROM customers WHERE tickets.customer_id = $1"
+    #   values = [@id]
+    #   customer_data = SqlRunner.run(sql, values)
+    #   return customer_data.map{|customer| Customer.new(customer)}
+    # end
 
 
 

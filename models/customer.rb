@@ -53,7 +53,15 @@ def films()
     film_data = SqlRunner.run(sql, values)
     return film_data.map { |film| Film.new(film) }
 end
+### Basic extenstion
+# Check how many tickets were bought by a customer
 
+def tickets
+  sql = "SELECT tickets.* FROM tickets WHERE customer_id = $1"
+  values = [@id]
+  ticket_data = SqlRunner.run(sql, values)
+  return ticket_data.map{|ticket| Ticket.new(ticket)}
+end
 
 
 end

@@ -11,7 +11,6 @@ class Film
     @id = options['id'].to_i if options ['id']
     @title = options['title']
     @price = options['price'].to_i
-
   end
 
   def save()
@@ -21,7 +20,7 @@ class Film
       values = [@title, @price]
       film = SqlRunner.run(sql, values).first
       @id = film['id'].to_i
-    end
+  end
 
   def self.all()
     sql = "SELECT * FROM films"
@@ -34,7 +33,7 @@ class Film
       sql = "UPDATE films SET (title, price) = ($1, $2) WHERE id = $3"
       values = [@title, @price, @id]
       SqlRunner.run(sql, values)
-    end
+  end
 
   def self.delete_all()
       sql = "DELETE FROM films"
@@ -49,7 +48,9 @@ class Film
       customer_data = SqlRunner.run(sql, values)
       return customer_data.map { |customer| Customer.new(customer) }
   end
-
+  ### Basic extensions:
+    # - Buying tickets should decrease the funds of the customer by the price
+    # - Check how many customers are going to watch a certain film
 
   def tickets
     sql = "SELECT tickets.* FROM tickets WHERE film_id = $1"
@@ -57,16 +58,14 @@ class Film
     ticket_data = SqlRunner.run(sql, values)
     return ticket_data.map{|ticket| Ticket.new(ticket)}
   end
+#
+#   def remaining_funds()
+#     tickets = self.tickets()
+#     ticket_prices = tickets.map{|ticket| ticket.free}
+#     total_prices
+#
+# end
 
-
-end
-
-  # def castings()
-  #   sql = "SELECT * FROM castings where movie_id = $1"
-  #   values = [@id]
-  #   casting_data = SqlRunner.run(sql, values)
-  #   return casting_data.map{|casting| Casting.new(casting)}
-  # end
   #
   # def remaining_budget()
   #   castings = self.castings()
@@ -74,3 +73,4 @@ end
   #   combined_fees = casting_fees.sum
   #   return @budget - combined_fees
   # end
+end
